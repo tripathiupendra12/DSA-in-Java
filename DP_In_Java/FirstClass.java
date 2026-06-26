@@ -1,5 +1,14 @@
 public class FirstClass {
+    //Recursion
+    public static int fib(int n) {
+        if(n == 0 || n == 1) {
+            return n;
+        }
 
+        return fib(n-1) + fib(n-2);
+    }
+
+    //Memorization(Top Down)
     public static int fibMemorization(int n, int[] f) {
         if(n == 0 || n == 1) {
             return n;
@@ -13,6 +22,7 @@ public class FirstClass {
         return f[n];
     }
 
+    //Tabulation(Bottom Up)
     public static int fibTabulation(int n) {
         int[] dp = new int[n+1];
         dp[1] = 1;
@@ -25,6 +35,8 @@ public class FirstClass {
     public static void main(String[] args) {
         int n = 5; 
         int f[] = new int[n+1]; // [0, 0, 0, ......]
-        System.err.println(fibTabulation(n));
+        System.err.println(fibTabulation(n)); // 5
+        System.err.println(fibMemorization(n, f)); // 5
+        System.err.println(fib(n)); // 5
     }
 }
